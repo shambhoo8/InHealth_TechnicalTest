@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+@Html.Partial("~/Views/Home/_PartialMenuPublicUser.cshtml")
+
+<div class="content">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <h2 class="text-center; text-danger"><span ng-bind="message"></span></h2>
+            <table style="width:100%; margin-top:10px;">
+                <tr ng-repeat="postData in BlogPostList">
+                    <td class="text-justify">
+                        <h2><b>{{postData.Title}}</b></h2>
+                        <h5><b>{{postData.Author}} &nbsp;&nbsp;&nbsp;&nbsp;{{postData.CreatedDate|date:'dd-MMM-yyyy hh:mm'}}</b></h5>
+                        {{postData.PostContent.substr(0,400)}}....
+                        <br />
+                        <br />
+                        <input type="button" class="btn btn-primary" value="Read More..." ng-click="RedirectToPostDetail(postData.blogPostId)" />
+                        <hr />
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+

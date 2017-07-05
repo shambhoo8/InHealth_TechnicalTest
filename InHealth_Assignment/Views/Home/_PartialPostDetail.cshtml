@@ -1,0 +1,59 @@
+﻿@{
+    Layout = null;
+}
+
+@Html.Partial("~/Views/Home/_PartialMenuPublicUser.cshtml")
+
+<div class="content">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8">
+            <table style="width:100%; margin-top:10px;">
+                <tr>
+                    <td class="text-justify">
+                        <h2>{{Title}}</h2>
+                        <h5><b>{{Author}} &nbsp;&nbsp;&nbsp;&nbsp;{{CreatedDate|date:'dd-MMM-yyyy hh:mm'}}</b></h5>
+                        {{PostContent}}
+                        <br />
+                        <hr />
+                </tr>
+                <tr>
+                    <td>
+                        <div class="content">
+                            <div class="row">
+                                <table>
+                                    <tr ng-repeat="CommentData in CommentList">
+                                        <td class="text-justify">
+                                            <b> {{CommentData.commentContent}}</b>
+                                            <br />
+                                            {{CommentData.CommentDate|date:'dd-MMM-yyyy hh:mm'}}
+                                            <br />
+                                            <br />
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td><h3>Comments.....</h3></td>
+                    <th />
+                </tr>
+                <tr>
+                    <td>
+                        <textarea id="txtComments" style="width:480px;" ng-maxlength="500" ng-model="Comment" />
+                        <br />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br />
+                        <input type="button" class="btn btn-sm btn-success" value="Submit" ng-click="SaveComment()" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@using System.Web.Optimization;
+
+<!DOCTYPE html>
+
+<html ng-app="inHealthAssignmentApp">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    @Scripts.Render("~/Content/JSBundles")
+    @Styles.Render("~/Content/CSSBundles")
+    
+
+</head>
+<body>
+    @*<div style="text-align:right;">
+        @{
+            if (Request.IsAuthenticated)
+            {
+                var identity = (HttpContext.Current.User as MvcAuthentication.MyPrincipal).Identity as MvcAuthentication.MyIdentity;
+                <text>@string.Format("Hello {0}", identity.User.EmailID)</text>
+            }
+        }
+    </div>*@
+    <div id="container">
+        @RenderBody()
+    </div>
+
+    @*<div id="footer">
+        <div class="copyright" style="text-align: center !important;">
+            <span style="color: black;">
+                Copyright © 2017 All rights reserved&nbsp; assignment
+            </span>
+        </div>
+    </div>*@
+</body>
+
+</html>

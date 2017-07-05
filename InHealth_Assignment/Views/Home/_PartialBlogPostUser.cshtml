@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+
+@Html.Partial("~/Views/Home/_PartialMenuStandardUser.cshtml")
+
+
+<div class="col-md-10 col-md-offset-1">
+    <h2>Blog List By User</h2>
+</div>
+<div class="col-lg-12" style="align-content:center;">
+    <div class="panel  panel-default col-md-10 col-md-offset-1">
+        <div class="panel-body tab-Scroll ">
+
+            <table class="table table-responsive tblfixed"
+                   selected-items="selectedBlogPostDetails"
+                   selection-mode="SingleRow"
+                   enable-filtering="true"
+                   tr-ng-grid=""
+                   items="BlogPostList"
+                   page-items="PageItemsCount_BlogPost"
+                   total-items="BlogPostTotalCount"
+                   current-page="setCurrentPage_BlogPost"
+                   filter-by="GlobalFilter_BlogPost"
+                   order-by="OrderBy_BlogPost"
+                   order-by-reverse="OrderByReversed_BlogPost"
+                   on-data-required="onServerSideItemsRequested(currentPage, pageItems, filterBy, filterByFields, orderBy, orderByReverse)">
+                <thead>
+                    <tr>
+                        <th field-name="" display-name="SNo" style="width:5%;" enable-filtering="false" enable-sorting="false">
+                        </th>
+                        <th field-name="BlogPostId" display-name="Blog PostId" ng-hide="true" enable-filtering="false" enable-sorting="true">
+                        </th>
+                        <th field-name="Title" style="width:45%;" display-name="Post Title" enable-filtering="false" enable-sorting="false">
+                        </th>
+                        <th field-name="Author" style="width:25%;" display-name="Author" enable-filtering="false" enable-sorting="false">
+                        </th>
+                        <th field-name="CreatedDate" style="width:25%;" display-name="Created Date" enable-filtering="false" enable-sorting="false">
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td field-name="">
+                            <p>{{$index + 1}}</p>
+                        </td>
+                        <td field-name="BlogPostId" ng-hide="true"></td>
+                        <td field-name="CreatedDate"><span> {{gridItem.CreatedDate|date:'dd-MMM-yyyy hh:mm a'}}</span></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="13">
+                            <span tr-ng-grid-pager=""></span>
+                            <div class="text-center">
+                            </div>
+                            <span style="font-size:15px;">Total Rows: {{BlogPostTotalCount}}</span>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
